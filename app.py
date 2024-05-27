@@ -62,7 +62,14 @@ class SurfboardForm(FlaskForm):
         ('pin', 'Pin Tail'),
         ('swallow', 'Swallow Tail'),
     ], validators=[DataRequired()])
-    
+
+def get_weather_data(city):
+    api_key = 'f3337f70ad27b09a847fe7856d3ceaaf'
+    base_url = 'http://api.openweathermap.org/data/2.5/weather'
+    params = {
+        'q': city,
+        'appid': api_key,
+        'units': 'metric'
     }
     response = requests.get(base_url, params=params)
     print(response.url)  # Print the URL for debugging
@@ -73,6 +80,7 @@ class SurfboardForm(FlaskForm):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = SurfboardForm()
+    weather = None
     error = None
     if form.validate_on_submit():
         weight = form.weight.data
@@ -84,8 +92,15 @@ def index():
         volume_upper = original_volume + 8
 
         tail_info = Surfboard.TAIL_SHAPES_INFO.get(tail_shape, 'Unknown tail shape')
+        
+        if city:
+            weather_data = get_weather_data(city)
+            if weather_data.get('cod') != 200:  # Check if the response contains an error code
+                error = weather_data.get('message', 'Error fetching weather data')
+            else:
+                weather = weather_data
 
-        return render_template('result.html', volume_lower=volume_lower, volume_upper=volume_upper, tail_info=tail_info,  error=error)
+        return render_template('result.html', volume_lower=volume_lower, volume_upper=volume_upper, tail_info=tail_info, weather=weather, error=error)
     return render_template('calculate.html', form=form)
 
 if __name__ == '__main__':
