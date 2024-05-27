@@ -32,10 +32,10 @@ class Surfboard(db.Model):
     }
 
     TAIL_SHAPES_INFO = {
-        'squash': 'Squash tail: Great for all-around performance.',
-        'round': 'Round tail: Offers smooth turns and better control.',
-        'pin': 'Pin tail: Ideal for big waves, provides excellent hold.',
-        'swallow': 'Swallow tail: Enhances maneuverability in small waves.'
+        'allround': 'Squash tail: Great for all-around performance.',
+        'control': 'Round tail: Offers smooth turns and better control.',
+        'big': 'Pin tail: Ideal for big waves, provides excellent hold.',
+        'small': 'Swallow tail: Enhances maneuverability in small waves.'
     }
 
     @classmethod
@@ -56,11 +56,11 @@ class SurfboardForm(FlaskForm):
         ('progressive', 'Progressive'),
         ('advanced', 'Advanced'),
     ], validators=[DataRequired()])
-    tail_shape = SelectField('Tail Shape', choices=[
-        ('squash', 'Squash Tail'),
-        ('round', 'Round Tail'),
-        ('pin', 'Pin Tail'),
-        ('swallow', 'Swallow Tail'),
+    tail_shape = SelectField('What do you want from your surfboard?', choices=[
+        ('allround', 'All Rounder'),
+        ('control', 'More Control'),
+        ('big', 'Big Waves'),
+        ('small', 'Small Waves'),
     ], validators=[DataRequired()])
 
 # Define the route
