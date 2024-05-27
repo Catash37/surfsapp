@@ -73,7 +73,6 @@ def index():
         weight = form.weight.data
         skill_level = form.skill_level.data
         tail_shape = form.tail_shape.data
-        city = request.form.get('city')
         original_volume = Surfboard.calculate_volume(weight, skill_level)
         volume_lower = original_volume - 2
         volume_upper = original_volume + 8
