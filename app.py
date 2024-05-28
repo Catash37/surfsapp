@@ -56,11 +56,11 @@ class SurfboardForm(FlaskForm):
         ('progressive', 'Progressive'),
         ('advanced', 'Advanced'),
     ], validators=[DataRequired()])
-    tail_shape = SelectField('What do you want from your surfboard?', choices=[
+    tail_shape = SelectField('What kind of surfboard do you need?', choices=[
         ('allround', 'All Rounder'),
         ('control', 'More Control'),
-        ('big', 'Big Waves'),
-        ('small', 'Small Waves'),
+        ('big', 'Ride Big Waves'),
+        ('small', 'Ride Smaller Waves'),
     ], validators=[DataRequired()])
 
 # Define the route
