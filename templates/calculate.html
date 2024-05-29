@@ -1,8 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surfboard Volume Calculator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
@@ -11,20 +11,43 @@
             background-size: cover;
             background-repeat: no-repeat;
             color: #fff;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .container {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 10px;
-            margin-top: 50px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
         }
         h1 {
-            text-align: center;
             margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-control-label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
         }
         .btn-primary {
             background-color: #28a745;
             border-color: #28a745;
+            width: 100%;
+            padding: 10px;
         }
     </style>
 </head>
@@ -34,18 +57,22 @@
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <div class="form-group">
-                {{ form.weight.label(class="form-control-label") }}
+                <label for="weight" class="form-control-label">Weight (kg)</label>
                 {{ form.weight(class="form-control") }}
             </div>
             <div class="form-group">
-                {{ form.skill_level.label(class="form-control-label") }}
+                <label for="skill_level" class="form-control-label">Skill Level</label>
                 {{ form.skill_level(class="form-control") }}
             </div>
             <div class="form-group">
-                {{ form.tail_shape.label(class="form-control-label") }}
+                <label for="tail_shape" class="form-control-label">What do you want from your surfboard?</label>
                 {{ form.tail_shape(class="form-control") }}
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Calculate</button>
+            <div class="form-group">
+                <label for="city" class="form-control-label">City</label>
+                <input type="text" name="city" class="form-control" placeholder="Enter your city">
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate</button>
         </form>
     </div>
 </body>
