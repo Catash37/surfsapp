@@ -35,6 +35,24 @@ melbourne_coordinates = {
     'long': 144.9631
 }
 
+brisbane_coordinates = {
+    'lat': -27.4701,
+    'long': 153.0210
+}
+
+adelaide_coordinates = {
+    'lat': -34.9285,
+    'long': 138.6007
+}
+
+hobart_coordinates = {
+    'lat': -42.880554,
+    'long': 147.3249
+}
+
+H
+
+
 # Define the model
 class Surfboard(db.Model):
     __tablename__ = 'surfboards'
@@ -123,6 +141,12 @@ class Surfboard(db.Model):
             location = melbourne_coordinates
         elif x == 'Perth':
             location = perth_coordinates
+        if x == 'Adelaide':
+            location = adelaide_coordinates
+        elif x == 'Brisbane':
+            location = brisbane_coordinates
+        elif x == 'Hobart':
+            location = hobart_coordinates
         else:
             location = "Invalid Location"
         return location
@@ -184,7 +208,10 @@ class SurfboardForm(FlaskForm):
     city = SelectField('Location:', choices=[
         ('Sydney'),
         ('Melbourne'), 
-        ('Perth')
+        ('Perth'),
+        ('Brisbane'),
+        ('Adelaide'), 
+        ('Hobart')
     ])
 
 
