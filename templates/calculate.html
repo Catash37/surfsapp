@@ -8,24 +8,25 @@
     <style>
         body {
             background-image: url("{{ url_for('static', filename='wallpaper.jpeg') }}");
-            background-size: cover;
+            background-size: 100% auto;
             background-repeat: no-repeat;
             color: #fff;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            position: relative;
         }
         .container {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 10px;
-            margin-top: 50px;
-        }
-        h1 {
+            width: 100%;
+            max-width: 400px;
             text-align: center;
-            margin-bottom: 20px;
-        }
-        .btn-primary {
-            background-color: #28a745;
-            border-color: #28a745;
-        }
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
     </style>
 </head>
 <body>
