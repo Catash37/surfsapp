@@ -50,8 +50,6 @@ hobart_coordinates = {
     'long': 147.3249
 }
 
-H
-
 
 # Define the model
 class Surfboard(db.Model):
