@@ -1,5 +1,4 @@
 # SurfsApp
-![SurfsApp](templates/wallpaper.jpeg)
 SurfsApp is a Flask web application designed to provide surfboard recommendations based on user input regarding weight, skill level, tail shape preference, and location. Additionally, the app offers information on wetsuit thickness and wax type based on the temperature conditions in the user's city.
 
 ## Features
